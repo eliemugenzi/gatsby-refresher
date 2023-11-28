@@ -2,6 +2,10 @@ import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import SEO from "./SEO";
 
+import styles from '../styles/layout.module.css';
+
+import '../styles/global.css';
+
 interface Props {
   children: React.ReactNode;
   title?: string;
@@ -32,13 +36,13 @@ const Layout: React.FC<Props> = ({ children, ...rest }) => {
         image={rest.image}
         path={rest.path}
       />
-      <header>
+      <header className={styles.header}>
         <Link to="/">{meta.title}</Link>
         <nav>
           <Link to="/about">About</Link>
         </nav>
       </header>
-      <main>{children}</main>
+      <main className={styles.content}>{children}</main>
     </>
   );
 };
